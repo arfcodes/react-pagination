@@ -33,6 +33,10 @@ export default class StyleManager {
    * Take styles properties
    */
   styleProps: StyleProps;
+  /**
+   * Take custom styles properties
+   */
+  customStyles?: StyleProps;
 
   /**
    * Initialize 
@@ -42,7 +46,7 @@ export default class StyleManager {
     this.theme = props.theme || 'default';
     this.color = props.color || 'default';
     this.size = props.size || 'md';
-    // this.customStyles = props.customStyles;
+    this.customStyles = props.customStyles;
 
     this.styleProps = {};
     this.getStyleProps();
@@ -54,8 +58,15 @@ export default class StyleManager {
   classes(key: keyof StyleProps): any {
     if (this.theme === c.THEME_CUSTOM) {
       return this.prefix + key;
-    } else if (this.isValidStyle(key)) {
-      return this.styleProps[key as keyof StyleProps];
+    } else {
+      const props = [];
+      if (this.isValidStyle(key, this.styleProps)) {
+        props.push(this.styleProps[key as keyof StyleProps]);
+      }
+      if (this.customStyles && this.isValidStyle(key, this.customStyles)) {
+        props.push(this.customStyles[key as keyof StyleProps]);
+      }
+      return classNames(props);
     }
   }
 
@@ -75,9 +86,9 @@ export default class StyleManager {
   /**
    * Get styles props
    */
-  isValidStyle(value: string): value is keyof StyleProps {
+  isValidStyle(value: string, props: StyleProps): value is keyof StyleProps {
     if (value) {
-      return value in this.styleProps;
+      return value in props;
     }
     return false
   }
