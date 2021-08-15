@@ -1,8 +1,10 @@
-import React, { ReactElement } from 'react';
+import React, { ReactNode, useEffect, useState } from 'react';
 // import classNames from 'classnames';
 
-import { Theme, Color, Size, StyleProps } from './types';
+import { Theme, Color, Size, StyleProps, AriaLabelProps } from './types';
 import StyleManager from './StyleManager';
+import Numbers from './Numbers';
+import Direction from './Direction';
 // import styles from './Main.module.scss';
 
 interface Props {
@@ -11,6 +13,10 @@ interface Props {
    */
   page: number
   /**
+   * The total number of items that will be displayed.
+   */
+  perPage: number
+  /**
    * The total number of items.
    */
   total: number
@@ -18,6 +24,10 @@ interface Props {
    * The callback invoked when pagination buttons are clicked.
    */
   onChange(page: number): void
+  /**
+   * Set aria-label in the buttons
+   */
+  ariaLabel?: AriaLabelProps
   /**
    * If `true`, the numbers button will be hidden or just show next & prev button.
    */
@@ -43,17 +53,21 @@ interface Props {
    */
   size?: Size,
   /**
-   * The size of the pagination buttons.
+   * The custom styles for pagination buttons
    */
   styles?: StyleProps,
   /**
+   * If `true`, then using native classname
+   */
+  useClassname?: boolean,
+  /**
    * The icon/label for next button
    */
-  nextButtonIcon?: ReactElement,
+  nextButtonLabel?: ReactNode,
   /**
    * The icon/label for previous button
    */
-  prevButtonIcon?: ReactElement,
+  prevButtonLabel?: ReactNode,
   /**
    * If `true`, the first & last button will be displayed.
    */
@@ -61,38 +75,89 @@ interface Props {
   /**
    * The icon/label for first button
    */
-  firstButtonIcon?: ReactElement,
+  firstButtonLabel?: ReactNode,
   /**
    * The icon/label for last button
    */
-  lastButtonIcon?: ReactElement,
+  lastButtonLabel?: ReactNode,
   /**
    * The element for ellipsis. 
    */
-  ellipsis?: ReactElement,
-  /**
-   * The format for pagination info
-   */
-  infoFormat?: string,
-  /**
-   * The position for pagination info
-   */
-  infoPosition?: 'left' | 'center' | 'right',
+  ellipsis?: ReactNode,
 }
 
 const Main: React.FC<Props> = (props) => {
-  const { theme, color, size, styles } = props;
+  const { 
+    page, 
+    total,
+    perPage,
+    onChange,
+    theme, 
+    color, 
+    size, 
+    styles, 
+    useClassname,
+    ariaLabel,
+    hideNumbers,
+    numbersDisplayed,
+    marginNumbersDisplayed,
+    ellipsis,
+    firstLastButton,
+    firstButtonLabel,
+    lastButtonLabel,
+    prevButtonLabel,
+    nextButtonLabel,
+  } = props;
 
-  const styler = new StyleManager({ theme, color, size, customStyles: styles });
+  const [pagesTotal, setPagesTotal] = useState(0);
 
-  return (
-    <div className={styler.classes('root')}>
-      <div className={styler.classes('main')}>
-        <h2>Pagination</h2>
-        <button type="button" className={styler.classes('button')}>1</button>
+  useEffect(() => {
+    setPagesTotal(Math.ceil(total/perPage));
+  }, [perPage, total]);
+
+  const styler = new StyleManager({ 
+    theme, 
+    color, 
+    size, 
+    customStyles: styles, 
+    useClassname,
+  });
+
+  if (pagesTotal > 1) {
+    return (
+      <div className={styler.rootClasses()}>
+        <div className={styler.classes('main')}>
+          <Direction 
+            page={page} 
+            pagesTotal={pagesTotal} 
+            styler={styler} 
+            onChange={onChange}
+            ariaLabel={ariaLabel}
+            firstLastButton={firstLastButton === undefined ? true : firstLastButton}
+            firstButtonLabel={firstButtonLabel}
+            lastButtonLabel={lastButtonLabel}
+            nextButtonLabel={nextButtonLabel}
+            prevButtonLabel={prevButtonLabel}
+          >
+            <>
+              {!hideNumbers && (
+                <Numbers 
+                  styler={styler} 
+                  page={page}
+                  pagesTotal={pagesTotal}
+                  numbersDisplayed={numbersDisplayed || 5}
+                  marginNumbersDisplayed={marginNumbersDisplayed || 0}
+                  ellipsis={ellipsis}
+                  onChange={onChange}
+                />
+              )}
+            </>
+          </Direction>
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
+  return null;
 }
 
 export default Main;

@@ -1,31 +1,30 @@
-import * as c from './constants';
+// Themes
+export enum Theme { 
+  DEFAULT = 'DEFAULT', 
+  SIMPLE = 'SIMPLE',
+  MODERN = 'MODERN', 
+  CUSTOM = 'CUSTOM',
+}
 
-const themeTypes = [
-  c.THEME_DEFAULT, 
-  c.THEME_SIMPLE, 
-  c.THEME_MODERN,
-  c.THEME_CUSTOM,
-] as const;
-export type Theme = (typeof themeTypes)[number];
+// Colors
+export enum Color { 
+  DEFAULT = 'DEFAULT',
+  LIGHT = 'LIGHT',
+  DARK = 'DARK',
+  RED = 'RED',
+  BLUE = 'BLUE',
+  GREEN = 'GREEN',
+  ORANGE = 'ORANGE',
+}
 
-const colorTypes = [
-  c.COLOR_DEFAULT, 
-  c.COLOR_LIGHT, 
-  c.COLOR_RED,
-  c.COLOR_BLUE,
-  c.COLOR_GREEN,
-  c.COLOR_ORANGE,
-] as const;
-export type Color = (typeof colorTypes)[number];
-
-const sizeTypes = [
-  c.SIZE_XS, 
-  c.SIZE_SM, 
-  c.SIZE_MD, 
-  c.SIZE_LG, 
-  c.SIZE_XL,
-] as const;
-export type Size = (typeof sizeTypes)[number];
+// Size constants
+export enum Size { 
+  XS = 'XS',
+  SM = 'SM',
+  MD = 'MD',
+  LG = 'LG',
+  XL = 'XL',
+}
 
 export interface StyleProps {
   root?: string,
@@ -41,4 +40,12 @@ export interface StyleProps {
   buttonActive?: string,
   buttonDisable?: string,
   info?: string,
+}
+
+export interface AriaLabelProps {
+  number?: string,
+  next?: string,
+  prev?: string,
+  first?: string,
+  last?: string,
 }

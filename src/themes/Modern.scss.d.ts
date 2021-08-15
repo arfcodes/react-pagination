@@ -7,8 +7,10 @@ declare namespace ModernScssNamespace {
     buttonFirst: string;
     buttonLast: string;
     buttonNext: string;
+    buttonNumber: string;
     buttonPrev: string;
-    directory: string;
+    colorDEFAULT: string;
+    colorRED: string;
     info: string;
     main: string;
     root: string;

@@ -2,10 +2,18 @@
   position: relative;
 }
 .main {
-  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
-.directory {
-  position: relative;
+.colorDEFAULT .main {
+  background-color: #cccccc;
+}
+.colorRED .main {
+  background-color: red;
+}
+.buttonDirectory {
+  margin-left: 10px;
 }
 .button {
   position: relative;
@@ -14,10 +22,13 @@
   position: relative;
 }
 .buttonNext {
-  position: relative;
+  background-color: green;
 }
 .buttonPrev {
-  position: relative;
+  background-color: orange;
+}
+.buttonNumber {
+  background-color: blue;
 }
 .buttonFirst {
   position: relative;
@@ -26,10 +37,10 @@
   position: relative;
 }
 .buttonActive {
-  position: relative;
+  background-color: red;
 }
 .buttonDisable {
-  position: relative;
+  opacity: 0.4;
 }
 .info {
   position: relative;
