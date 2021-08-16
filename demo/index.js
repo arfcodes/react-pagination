@@ -5,14 +5,15 @@ import Pagination, { Theme, Color } from '../src';
 
 const App = () => {
   const [page, setPage] = useState(1);
-  console.log(page);
 
   return (
     <div>
       <Pagination
         page={page} 
-        total={99} 
+        total={999} 
         perPage={10} 
+        marginNumbersDisplayed={0}
+        numbersDisplayed={6} 
         theme={Theme.MODERN} 
         color={Color.RED}
         onChange={page => setPage(page)}

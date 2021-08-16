@@ -27,7 +27,7 @@ interface Props {
   /**
    * The number of buttons to display for margins.
    */
-  marginNumbersDisplayed: number
+  marginNumbersDisplayed?: number
   /**
    * The element for ellipsis. 
    */
@@ -38,27 +38,116 @@ const Numbers: React.FC<Props> = (props) => {
   const { 
     styler, 
     page, 
-    numbersDisplayed, 
+    numbersDisplayed,
+    marginNumbersDisplayed, 
     pagesTotal,
-    onChange
+    onChange,
+    ellipsis,
   } = props;
+
+  const ElipsisElement = () => (
+    <span className={styler.classes('ellipsis')}>
+      {ellipsis || '...'}
+    </span>
+  );
 
   /**
    * getNumbers
    */
   const getNumbers = () => {
-    const numbers = [];
-    let start = page;
-    let end = page + numbersDisplayed;
+    let half = Math.floor(numbersDisplayed/2);
+    if (half > 1 && numbersDisplayed % 2 === 0) {
+      half -= 1;
+    }
+    let start = page - half;
+    if (start < 1) {
+      start = 1;
+    }
+    let end = start + numbersDisplayed;
     if (end > pagesTotal) {
       end = pagesTotal + 1;
       start = pagesTotal - numbersDisplayed + 1;
     }
+    const numbers = getRange(start, end);
 
-    for (let i = start; i < end; i += 1) {
-      numbers.push(i);
+    return (
+      <>
+        {getLeftMargins(start)}
+        {getButtons(numbers)}
+        {getRightMargins(end - 1)}
+      </>
+    );
+  };
+
+  /**
+   * getLeftMargins
+   */
+  const getLeftMargins = (first: number) => {
+    
+    if (marginNumbersDisplayed === undefined || marginNumbersDisplayed !== 0) {
+      const margin = marginNumbersDisplayed ? marginNumbersDisplayed : 1;
+      let isShow = true;
+  
+      const start = 1;
+      let end = start + margin;
+      if (end >= first) {
+        end = first - 1;
+        if (end < 1) {
+          isShow = false
+        }
+      }
+      const numbers = getRange(start, end);
+  
+      if (isShow && numbers.length > 0) {
+        return (
+          <>
+            {getButtons(numbers)}
+            <ElipsisElement />
+          </>
+        );
+      }
+    } else if (first > 1) {
+      return <ElipsisElement />;
     }
+    return null;
+  };
 
+  /**
+   * getRightMargins
+   */
+  const getRightMargins = (last: number) => {
+    if (marginNumbersDisplayed === undefined || marginNumbersDisplayed !== 0) {
+      const margin = marginNumbersDisplayed ? marginNumbersDisplayed : 1;
+      let isShow = true;
+  
+      const end = pagesTotal;
+      let start = end - (margin - 1);
+      if (start <= last) {
+        start = last + 1;
+        if (start > pagesTotal) {
+          isShow = false
+        }
+      }
+      const numbers = getRange(start, end + 1);
+  
+      if (isShow && numbers.length > 0) {
+        return (
+          <>
+            <ElipsisElement />
+            {getButtons(numbers)}
+          </>
+        );
+      }
+    } else if (last < pagesTotal) {
+      return <ElipsisElement />;
+    }
+    return null;
+  };
+
+  /**
+   * getButtons
+   */
+  const getButtons = (numbers: number[]) => {
     return  (
       <>
         {numbers.map(num => {
@@ -79,6 +168,21 @@ const Numbers: React.FC<Props> = (props) => {
         })}
       </>
     );
+  };
+
+  /**
+   * getRange
+   */
+  const getRange = (start: number, end?: number) => {
+    let range = [];
+    if (!end || start === end) {
+      range = [start];
+    } else {
+      for (let i = start; i < end; i += 1) {
+        range.push(i);
+      }
+    }
+    return range;
   };
 
   return (

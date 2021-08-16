@@ -146,7 +146,7 @@ const Main: React.FC<Props> = (props) => {
                   page={page}
                   pagesTotal={pagesTotal}
                   numbersDisplayed={numbersDisplayed || 5}
-                  marginNumbersDisplayed={marginNumbersDisplayed || 0}
+                  marginNumbersDisplayed={marginNumbersDisplayed}
                   ellipsis={ellipsis}
                   onChange={onChange}
                 />
