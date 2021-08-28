@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
-import Pagination, { Theme, Color } from '../src';
+import Pagination from '../dist'; 
 // import Styles from './Styles.scss';
 
 const App = () => {
@@ -12,10 +12,7 @@ const App = () => {
         page={page} 
         total={999} 
         perPage={10} 
-        marginNumbersDisplayed={0}
-        numbersDisplayed={6} 
-        theme={Theme.MODERN} 
-        color={Color.RED}
+        numbersDisplayed={6}
         onChange={page => setPage(page)}
       />
     </div>

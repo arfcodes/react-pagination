@@ -1,4 +1,4 @@
-import React, { ReactNode, useEffect, useState } from 'react';
+import React, { ReactNode } from 'react';
 // import classNames from 'classnames';
 
 import { Theme, Color, Size, StyleProps, AriaLabelProps } from './types';
@@ -109,11 +109,12 @@ const Main: React.FC<Props> = (props) => {
     nextButtonLabel,
   } = props;
 
-  const [pagesTotal, setPagesTotal] = useState(0);
+  const pagesTotal = Math.ceil(total/perPage);
+  // const [pagesTotal, setPagesTotal] = useState(Math.ceil(total/perPage));
 
-  useEffect(() => {
-    setPagesTotal(Math.ceil(total/perPage));
-  }, [perPage, total]);
+  // useEffect(() => {
+  //   setPagesTotal(Math.ceil(total/perPage));
+  // }, []);
 
   const styler = new StyleManager({ 
     theme, 

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Pagination from '../src';
+import Pagination from '../dist';
 
 export default {
   title: 'Basic',

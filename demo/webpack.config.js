@@ -7,14 +7,14 @@ function resolve(dir) {
 
 module.exports = {
   mode: 'development',
-  entry: [resolve('index.js')],
+  entry: [resolve('index.tsx')],
   output: {
-    path: resolve('dist'),
+    path: resolve('build'),
     filename: `[name].[chunkhash].js`,
   },
   devServer: {
     port: 3003,
-    contentBase: resolve('dist'),
+    contentBase: resolve('build'),
     historyApiFallback: true,
     compress: true,
     clientLogLevel: 'silent',
@@ -86,7 +86,7 @@ module.exports = {
     modules: ['node_modules', 'src'],
     extensions: ['.js', '.jsx', '.ts', '.tsx'],
     alias: {
-      '@': path.join(process.cwd(), 'src'),
+      '@': path.join(process.cwd(), '/'),
     },
   },
 };

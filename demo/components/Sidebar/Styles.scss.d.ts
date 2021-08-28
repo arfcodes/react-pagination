@@ -1,7 +1,8 @@
 declare namespace StylesScssNamespace {
   export interface IStylesScss {
-    content: string;
-    main: string;
+    link: string;
+    linkActive: string;
+    nav: string;
     root: string;
   }
 }

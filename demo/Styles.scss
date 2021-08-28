@@ -1,7 +1,13 @@
 .root {
-  margin-top: 100px;
+  position: relative;
+}
+.content {
+  padding: 40px;
+  background-color: #ffffff;
+  border-left: 2px solid #dddddd;
 }
 .main {
-  padding-bottom: 40px;
-  background-color: red;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
 }

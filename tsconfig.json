@@ -6,6 +6,9 @@
             "dom.iterable",
             "esnext"
         ],
+        "module": "esnext",
+        "jsx": "react-jsx",
+        "outDir": "dist",
         "allowJs": true,
         "skipLibCheck": true,
         "esModuleInterop": true,
@@ -13,12 +16,11 @@
         "strict": true,
         "forceConsistentCasingInFileNames": true,
         "noFallthroughCasesInSwitch": true,
-        "module": "esnext",
         "moduleResolution": "node",
         "resolveJsonModule": true,
         "isolatedModules": true,
         "noEmit": false,
-        "jsx": "react-jsx"
+        "declaration": true
     },
     "include": [
         "src"
@@ -30,7 +32,7 @@
     ],
     "ts-node": {
       "compilerOptions": {
-        "module": "CommonJS",
+        "module": "esnext",
         "resolveJsonModule": true,
         "noImplicitAny": false
       }
