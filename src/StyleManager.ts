@@ -1,8 +1,9 @@
 import classNames from 'classnames';
 import { Theme, Color, Size, StyleProps } from './types';
 import defaultStyles from './themes/Default.scss';
-import simpleStyles from './themes/Simple.scss';
-import modernStyles from './themes/Modern.scss';
+import blockStyles from './themes/Block.scss';
+import lineStyles from './themes/Line.scss';
+import buttonsStyles from './themes/Buttons.scss';
 
 export interface StyleManagerProps {
   /**
@@ -124,10 +125,12 @@ export default class StyleManager {
    * Get styles props
    */
   getStyleProps(): void {
-    if (this.theme === Theme.SIMPLE) {
-      this.styleProps = simpleStyles;
-    } else if (this.theme === Theme.MODERN) {
-      this.styleProps = modernStyles;
+    if (this.theme === Theme.BLOCK) {
+      this.styleProps = blockStyles;
+    } else if (this.theme === Theme.LINE) {
+      this.styleProps = lineStyles;
+    } else if (this.theme === Theme.BUTTONS) {
+      this.styleProps = buttonsStyles;
     } else {
       this.styleProps = defaultStyles;
     }

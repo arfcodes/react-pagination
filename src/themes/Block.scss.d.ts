@@ -1,5 +1,5 @@
-declare namespace SimpleScssNamespace {
-  export interface ISimpleScss {
+declare namespace BlockScssNamespace {
+  export interface IBlockScss {
     button: string;
     buttonActive: string;
     buttonDirectory: string;
@@ -14,9 +14,9 @@ declare namespace SimpleScssNamespace {
   }
 }
 
-declare const SimpleScssModule: SimpleScssNamespace.ISimpleScss & {
+declare const BlockScssModule: BlockScssNamespace.IBlockScss & {
   /** WARNING: Only available when `css-loader` is used without `style-loader` or `mini-css-extract-plugin` */
-  locals: SimpleScssNamespace.ISimpleScss;
+  locals: BlockScssNamespace.IBlockScss;
 };
 
-export = SimpleScssModule;
+export = BlockScssModule;

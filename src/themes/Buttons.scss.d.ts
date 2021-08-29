@@ -1,5 +1,5 @@
-declare namespace ModernScssNamespace {
-  export interface IModernScss {
+declare namespace ButtonsScssNamespace {
+  export interface IButtonsScss {
     button: string;
     buttonActive: string;
     buttonDirectory: string;
@@ -16,9 +16,9 @@ declare namespace ModernScssNamespace {
   }
 }
 
-declare const ModernScssModule: ModernScssNamespace.IModernScss & {
+declare const ButtonsScssModule: ButtonsScssNamespace.IButtonsScss & {
   /** WARNING: Only available when `css-loader` is used without `style-loader` or `mini-css-extract-plugin` */
-  locals: ModernScssNamespace.IModernScss;
+  locals: ButtonsScssNamespace.IButtonsScss;
 };
 
-export = ModernScssModule;
+export = ButtonsScssModule;

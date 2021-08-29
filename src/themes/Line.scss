@@ -1,0 +1,150 @@
+@import "Color";
+
+.root {
+  display: flex;
+  flex-direction: row;
+}
+.main {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-bottom: 3px solid #{$color-default};
+}
+.colorLIGHT .main {
+  border-bottom-color: #{$color-light};
+}
+.colorLIGHT .button:after {
+  background-color: #{$color-light};
+}
+.colorDARK .main {
+  border-bottom-color: #{$color-dark};
+}
+.colorDARK .button {
+  color: #{$color-dark};
+  &:after {
+    background-color: #{$color-dark};
+  }
+}
+.colorRED .main {
+  border-bottom-color: #{$color-red};
+}
+.colorRED .button {
+  color: #{$color-red};
+  &:after {
+    background-color: #{$color-red};
+  }
+}
+.colorBLUE .main {
+  border-bottom-color: #{$color-blue};
+}
+.colorBLUE .button {
+  color: #{$color-blue};
+
+  &:after {
+    background-color: #{$color-blue};
+  }
+}
+.colorGREEN .main {
+  border-bottom-color: #{$color-green};
+}
+.colorGREEN .button {
+  color: #{$color-green};
+
+  &:after {
+    background-color: #{$color-green};
+  }
+}
+.colorORANGE .main {
+  border-bottom-color: #{$color-orange};
+}
+.colorORANGE .button {
+  color: #{$color-orange};
+
+  &:after {
+    background-color: #{$color-orange};
+  }
+}
+.numbers {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 0 20px;
+}
+.button {
+  border: 0 none;
+  background-color: transparent;
+  color: #{$color-default};
+  padding: 0 10px;
+  transition: all 0.4s;
+  font-size: 14px;
+  font-weight: 600;
+  padding-bottom: 8px;
+  position: relative;
+
+  &:after {
+    content: "";
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background-color: #{$color-default};
+    transition: all 0.4s;
+    transform-origin: center bottom;
+  }
+
+  &:hover {
+    &:after {
+      height: 6px;
+    }
+  }
+
+  &:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    color: #{$color-default}!important;
+
+    &:hover {
+      background-color: transparent;
+      color: #{$color-default};
+
+      &:after {
+        height: 3px;
+      }
+    }
+  }
+}
+.buttonDirectory {
+  font-size: 13px;
+
+  &:not(:first-child) {
+    margin-left: 10px;
+  }
+}
+.buttonNumber {
+  margin: 0 4px;
+}
+.buttonFirst {
+  position: relative;
+}
+.buttonLast {
+  position: relative;
+}
+.buttonActive {
+  &:after {
+    height: 6px;
+  }
+}
+.ellipsis {
+  font-size: 14px;
+  font-weight: 500;
+  color: #{$color-grey};
+
+  &:first-child {
+    margin-right: 8px;
+  }
+
+  &:last-child {
+    margin-left: 8px;
+  }
+}

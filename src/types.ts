@@ -1,8 +1,9 @@
 // Themes
 export enum Theme { 
   DEFAULT = 'DEFAULT', 
-  SIMPLE = 'SIMPLE',
-  MODERN = 'MODERN', 
+  BLOCK = 'BLOCK',
+  LINE = 'LINE', 
+  BUTTONS = 'BUTTONS', 
   CUSTOM = 'CUSTOM',
 }
 
