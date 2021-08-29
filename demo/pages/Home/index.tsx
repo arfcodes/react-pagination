@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Pagination, { Theme, Color } from '../../../dist'; 
+import Pagination, { Theme, Color } from '../../../src'; 
 // import Styles from './Styles.scss';
 
 const Home: React.FC = () => {
