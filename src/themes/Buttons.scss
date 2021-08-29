@@ -1,3 +1,5 @@
+@import "Color";
+
 .root {
   position: relative;
 }
@@ -6,29 +8,50 @@
   flex-direction: row;
   align-items: center;
 }
-.colorDEFAULT .main {
-  background-color: #cccccc;
-}
-.colorRED .main {
-  background-color: red;
-}
-.buttonDirectory {
-  margin-left: 10px;
+.numbers {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 0 12px;
 }
 .button {
-  position: relative;
+  border: 0 none;
+  background-color: #{$color-default};
+  color: #ffffff;
+  border-radius: 4px;
+  height: 30px;
+  padding: 0 15px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.4s;
+  font-size: 14px;
+  font-weight: 600;
+
+  &:hover {
+    background-color: darken($color-default, 20);
+  }
+
+  &:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+
+    &:hover {
+      background-color: #{$color-default};
+    }
+  }
+}
+.buttonActive {
+  background-color: darken($color-default, 20);
 }
 .buttonDirectory {
-  position: relative;
-}
-.buttonNext {
-  background-color: green;
-}
-.buttonPrev {
-  background-color: orange;
+  margin-left: 8px;
 }
 .buttonNumber {
-  background-color: blue;
+  width: 30px;
+  padding: 0;
+  margin: 0 3px;
 }
 .buttonFirst {
   position: relative;
@@ -36,9 +59,114 @@
 .buttonLast {
   position: relative;
 }
-.buttonActive {
-  background-color: red;
+.ellipsis {
+  display: block;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  border-radius: 4px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 500;
+  background-color: #{$color-default};
+  color: #ffffff;
+
+  &:first-child {
+    margin-right: 3px;
+  }
+
+  &:last-child {
+    margin-left: 3px;
+  }
 }
-.info {
-  position: relative;
+
+.colorLIGHT .button, .colorLIGHT .ellipsis {
+  background-color: $color-light;
+  color: darken($color-light, 30);
+}
+.colorLIGHT .button {
+  &:hover {
+    background-color: darken($color-light, 15);
+  }
+  &:disabled {
+    background-color: $color-light;
+  }
+}
+.colorLIGHT .buttonActive {
+  background-color: darken($color-light, 15);
+}
+
+.colorDARK .button, .colorDARK .ellipsis {
+  background-color: $color-dark;
+}
+.colorDARK .button {
+  &:hover {
+    background-color: lighten($color-dark, 30);
+  }
+  &:disabled {
+    background-color: $color-dark;
+  }
+}
+.colorDARK .buttonActive {
+  background-color: lighten($color-dark, 30);
+}
+
+.colorRED .button, .colorRED .ellipsis {
+  background-color: $color-red;
+}
+.colorRED .button {
+  &:hover {
+    background-color: darken($color-red, 15);
+  }
+  &:disabled {
+    background-color: $color-red;
+  }
+}
+.colorRED .buttonActive {
+  background-color: darken($color-red, 15);
+}
+
+.colorBLUE .button, .colorBLUE .ellipsis {
+  background-color: $color-blue;
+}
+.colorBLUE .button {
+  &:hover {
+    background-color: darken($color-blue, 20);
+  }
+  &:disabled {
+    background-color: $color-blue;
+  }
+}
+.colorBLUE .buttonActive {
+  background-color: darken($color-blue, 20);
+}
+
+.colorGREEN .button, .colorGREEN .ellipsis {
+  background-color: $color-green;
+}
+.colorGREEN .button {
+  &:hover {
+    background-color: darken($color-green, 15);
+  }
+  &:disabled {
+    background-color: $color-green;
+  }
+}
+.colorGREEN .buttonActive {
+  background-color: darken($color-green, 15);
+}
+
+.colorORANGE .button, .colorORANGE .ellipsis {
+  background-color: $color-orange;
+}
+.colorORANGE .button {
+  &:hover {
+    background-color: darken($color-orange, 15);
+  }
+  &:disabled {
+    background-color: $color-orange;
+  }
+}
+.colorORANGE .buttonActive {
+  background-color: darken($color-orange, 15);
 }

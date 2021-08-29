@@ -5,13 +5,16 @@ declare namespace ButtonsScssNamespace {
     buttonDirectory: string;
     buttonFirst: string;
     buttonLast: string;
-    buttonNext: string;
     buttonNumber: string;
-    buttonPrev: string;
-    colorDEFAULT: string;
+    colorBLUE: string;
+    colorDARK: string;
+    colorGREEN: string;
+    colorLIGHT: string;
+    colorORANGE: string;
     colorRED: string;
-    info: string;
+    ellipsis: string;
     main: string;
+    numbers: string;
     root: string;
   }
 }
