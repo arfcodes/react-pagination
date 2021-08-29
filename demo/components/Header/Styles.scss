@@ -1,7 +1,11 @@
 .root {
-  padding: 30px;
   background-color: #eeeeee;
   border-bottom: 1px solid #bbbbbb;
+  height: 90px;
+  padding: 0 30px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 .title {
   font-size: 1.8rem;

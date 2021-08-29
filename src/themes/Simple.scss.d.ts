@@ -3,7 +3,6 @@ declare namespace SimpleScssNamespace {
     button: string;
     buttonActive: string;
     buttonDirectory: string;
-    buttonDisable: string;
     buttonFirst: string;
     buttonLast: string;
     buttonNext: string;

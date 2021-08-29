@@ -67,6 +67,9 @@ const Numbers: React.FC<Props> = (props) => {
     if (end > pagesTotal) {
       end = pagesTotal + 1;
       start = pagesTotal - numbersDisplayed + 1;
+      if (start < 1) {
+        start = 1;
+      }
     }
     const numbers = getRange(start, end);
 

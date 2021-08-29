@@ -1,23 +1,118 @@
+@import "Color";
+
 .root {
   position: relative;
 }
 .main {
-  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
-.directory {
-  position: relative;
+.colorLIGHT .button {
+  &:hover {
+    background-color: #{$color-light};
+  }
+}
+.colorLIGHT .buttonActive {
+  background-color: #{$color-light};
+  color: #ffffff;
+}
+.colorDARK .button {
+  &:hover {
+    background-color: #{$color-dark};
+    color: #ffffff;
+  }
+}
+.colorDARK .buttonActive {
+  background-color: #{$color-dark};
+  color: #ffffff;
+}
+.colorRED .button {
+  &:hover {
+    background-color: #{$color-red};
+    color: #ffffff;
+  }
+}
+.colorRED .buttonActive {
+  background-color: #{$color-red};
+  color: #ffffff;
+}
+.colorBLUE .button {
+  &:hover {
+    background-color: #{$color-blue};
+    color: #ffffff;
+  }
+}
+.colorBLUE .buttonActive {
+  background-color: #{$color-blue};
+  color: #ffffff;
+}
+.colorGREEN .button {
+  &:hover {
+    background-color: #{$color-green};
+    color: #ffffff;
+  }
+}
+.colorGREEN .buttonActive {
+  background-color: #{$color-green};
+  color: #ffffff;
+}
+.colorORANGE .button {
+  &:hover {
+    background-color: #{$color-orange};
+    color: #ffffff;
+  }
+}
+.colorORANGE .buttonActive {
+  background-color: #{$color-orange};
+  color: #ffffff;
+}
+.buttonDirectory {
+  margin-left: 10px;
+}
+.numbers {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 0 20px;
 }
 .button {
-  position: relative;
+  border: 0 none;
+  background-color: transparent;
+  color: #{$color-default};
+  border-radius: 50px;
+  height: 30px;
+  padding: 0 15px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin: 0 4px;
+  transition: all 0.4s;
+  font-size: 14px;
+  font-weight: 600;
+
+  &:hover {
+    background-color: #{$color-default};
+    color: #ffffff;
+  }
+
+  &:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+
+    &:hover {
+      background-color: transparent;
+      color: #{$color-default};
+    }
+  }
 }
 .buttonDirectory {
   position: relative;
 }
-.buttonNext {
-  position: relative;
-}
-.buttonPrev {
-  position: relative;
+.buttonNumber {
+  width: 30px;
+  padding: 0;
 }
 .buttonFirst {
   position: relative;
@@ -26,11 +121,19 @@
   position: relative;
 }
 .buttonActive {
-  position: relative;
+  background-color: #{$color-default};
+  color: #ffffff;
 }
-.buttonDisable {
-  position: relative;
-}
-.info {
-  position: relative;
+.ellipsis {
+  font-size: 14px;
+  font-weight: 500;
+  color: #{$color-grey};
+
+  &:first-child {
+    margin-right: 8px;
+  }
+
+  &:last-child {
+    margin-left: 8px;
+  }
 }

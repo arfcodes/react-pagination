@@ -3,14 +3,18 @@ declare namespace DefaultScssNamespace {
     button: string;
     buttonActive: string;
     buttonDirectory: string;
-    buttonDisable: string;
     buttonFirst: string;
     buttonLast: string;
-    buttonNext: string;
-    buttonPrev: string;
-    directory: string;
-    info: string;
+    buttonNumber: string;
+    colorBLUE: string;
+    colorDARK: string;
+    colorGREEN: string;
+    colorLIGHT: string;
+    colorORANGE: string;
+    colorRED: string;
+    ellipsis: string;
     main: string;
+    numbers: string;
     root: string;
   }
 }

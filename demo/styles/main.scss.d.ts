@@ -1,6 +1,7 @@
 declare namespace MainScssNamespace {
   export interface IMainScss {
     content: string;
+    inner: string;
     main: string;
     root: string;
   }

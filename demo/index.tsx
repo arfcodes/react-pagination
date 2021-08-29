@@ -14,15 +14,17 @@ const App: React.FC = () => {
   return (
     <BrowserRouter>
       <div className={styles.root}>
-        <Header />
-        <div className={styles.main}>
-          <Sidebar />
-          <div className={styles.content}>
-            <Switch>
-              <Route path="/" component={Home} />
-              <Route path="/next-prev" component={Home} />
-              <Route path="/request" component={Home} />
-            </Switch>
+        <div className={styles.inner}>
+          <Header />
+          <div className={styles.main}>
+            <Sidebar />
+            <div className={styles.content}>
+              <Switch>
+                <Route path="/" component={Home} />
+                <Route path="/next-prev" component={Home} />
+                <Route path="/request" component={Home} />
+              </Switch>
+            </div>
           </div>
         </div>
       </div>
