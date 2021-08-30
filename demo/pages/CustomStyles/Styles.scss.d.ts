@@ -1,17 +1,11 @@
-declare namespace LineScssNamespace {
-  export interface ILineScss {
+declare namespace StylesScssNamespace {
+  export interface IStylesScss {
     button: string;
     buttonActive: string;
     buttonDirectory: string;
     buttonFirst: string;
     buttonLast: string;
     buttonNumber: string;
-    colorBLUE: string;
-    colorDARK: string;
-    colorGREEN: string;
-    colorLIGHT: string;
-    colorORANGE: string;
-    colorRED: string;
     ellipsis: string;
     info: string;
     main: string;
@@ -20,9 +14,9 @@ declare namespace LineScssNamespace {
   }
 }
 
-declare const LineScssModule: LineScssNamespace.ILineScss & {
+declare const StylesScssModule: StylesScssNamespace.IStylesScss & {
   /** WARNING: Only available when `css-loader` is used without `style-loader` or `mini-css-extract-plugin` */
-  locals: LineScssNamespace.ILineScss;
+  locals: StylesScssNamespace.IStylesScss;
 };
 
-export = LineScssModule;
+export = StylesScssModule;

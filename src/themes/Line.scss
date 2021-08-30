@@ -10,65 +10,15 @@
   align-items: center;
   border-bottom: 3px solid #{$color-default};
 }
-.colorLIGHT .main {
-  border-bottom-color: #{$color-light};
-}
-.colorLIGHT .button:after {
-  background-color: #{$color-light};
-}
-.colorDARK .main {
-  border-bottom-color: #{$color-dark};
-}
-.colorDARK .button {
-  color: #{$color-dark};
-  &:after {
-    background-color: #{$color-dark};
-  }
-}
-.colorRED .main {
-  border-bottom-color: #{$color-red};
-}
-.colorRED .button {
-  color: #{$color-red};
-  &:after {
-    background-color: #{$color-red};
-  }
-}
-.colorBLUE .main {
-  border-bottom-color: #{$color-blue};
-}
-.colorBLUE .button {
-  color: #{$color-blue};
-
-  &:after {
-    background-color: #{$color-blue};
-  }
-}
-.colorGREEN .main {
-  border-bottom-color: #{$color-green};
-}
-.colorGREEN .button {
-  color: #{$color-green};
-
-  &:after {
-    background-color: #{$color-green};
-  }
-}
-.colorORANGE .main {
-  border-bottom-color: #{$color-orange};
-}
-.colorORANGE .button {
-  color: #{$color-orange};
-
-  &:after {
-    background-color: #{$color-orange};
-  }
-}
 .numbers {
   display: flex;
   flex-direction: row;
   align-items: center;
   margin: 0 20px;
+
+  & + button {
+    margin-left: 0!important;
+  } 
 }
 .button {
   border: 0 none;
@@ -77,6 +27,7 @@
   padding: 0 10px;
   transition: all 0.4s;
   font-size: 14px;
+  line-height: 14px;
   font-weight: 600;
   padding-bottom: 8px;
   position: relative;
@@ -147,4 +98,91 @@
   &:last-child {
     margin-left: 8px;
   }
+}
+.info {
+  margin: 0 15px;
+  font-size: 14px;
+  line-height: 14px;
+  font-weight: 500;
+  color: #{$color-default};
+  padding-bottom: 8px;
+
+  & + button {
+    margin-left: 0!important;
+  } 
+}
+
+.colorLIGHT .main {
+  border-bottom-color: #{$color-light};
+}
+.colorLIGHT .button:after {
+  background-color: #{$color-light};
+}
+
+.colorDARK .main {
+  border-bottom-color: #{$color-dark};
+}
+.colorDARK .button {
+  color: #{$color-dark};
+  &:after {
+    background-color: #{$color-dark};
+  }
+}
+.colorDARK .info {
+  color: #{$color-dark};
+}
+
+.colorRED .main {
+  border-bottom-color: #{$color-red};
+}
+.colorRED .button {
+  color: #{$color-red};
+  &:after {
+    background-color: #{$color-red};
+  }
+}
+.colorRED .info {
+  color: #{$color-red};
+}
+
+.colorBLUE .main {
+  border-bottom-color: #{$color-blue};
+}
+.colorBLUE .button {
+  color: #{$color-blue};
+
+  &:after {
+    background-color: #{$color-blue};
+  }
+}
+.colorBLUE .info {
+  color: #{$color-blue};
+}
+
+.colorGREEN .main {
+  border-bottom-color: #{$color-green};
+}
+.colorGREEN .button {
+  color: #{$color-green};
+
+  &:after {
+    background-color: #{$color-green};
+  }
+}
+.colorGREEN .info {
+  color: #{$color-green};
+}
+
+.colorORANGE .main {
+  border-bottom-color: #{$color-orange};
+}
+.colorORANGE .button {
+  color: #{$color-orange};
+
+  &:after {
+    background-color: #{$color-orange};
+  }
+}
+.colorORANGE .info {
+  color: #{$color-orange};
 }

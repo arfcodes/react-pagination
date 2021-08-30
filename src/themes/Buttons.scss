@@ -12,7 +12,11 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin: 0 12px;
+  margin: 0 15px;
+
+  & + button {
+    margin-left: 0;
+  }
 }
 .button {
   border: 0 none;
@@ -41,23 +45,22 @@
       background-color: #{$color-default};
     }
   }
+
+  &:first-child {
+    margin-left: 0;
+  }
 }
 .buttonActive {
   background-color: darken($color-default, 20);
 }
 .buttonDirectory {
   margin-left: 8px;
+  font-size: 13px;
 }
 .buttonNumber {
   width: 30px;
   padding: 0;
   margin: 0 3px;
-}
-.buttonFirst {
-  position: relative;
-}
-.buttonLast {
-  position: relative;
 }
 .ellipsis {
   display: block;
@@ -78,6 +81,16 @@
   &:last-child {
     margin-left: 3px;
   }
+}
+.info {
+  margin: 0 15px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #{$color-default};
+
+  & + button {
+    margin-left: 0!important;
+  } 
 }
 
 .colorLIGHT .button, .colorLIGHT .ellipsis {

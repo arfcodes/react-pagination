@@ -13,6 +13,7 @@ declare namespace BlockScssNamespace {
     colorORANGE: string;
     colorRED: string;
     ellipsis: string;
+    info: string;
     main: string;
     numbers: string;
     root: string;

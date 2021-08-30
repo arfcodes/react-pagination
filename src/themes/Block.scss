@@ -45,6 +45,13 @@
       color: #ffffff;
     }
   }
+
+  &:first-child {
+    margin-left: 0;
+  }
+  &:last-child {
+    margin-right: 0;
+  }
 }
 .buttonDirectory {
   font-size: 13px;
@@ -72,7 +79,8 @@
 .ellipsis {
   font-size: 14px;
   font-weight: 500;
-  color: #{$color-grey};
+  color: #ffffff;
+  opacity: 0.6;
 
   &:first-child {
     margin-right: 8px;
@@ -81,6 +89,16 @@
   &:last-child {
     margin-left: 8px;
   }
+}
+.info {
+  margin: 0 15px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #ffffff;
+
+  & + button {
+    margin-left: 0!important;
+  } 
 }
 
 .colorLIGHT .main {
@@ -96,6 +114,9 @@
   &:disabled {
     color: darken($color-light, 50);
   }
+}
+.colorLIGHT .info {
+  color: darken($color-light, 50);
 }
 .colorLIGHT .buttonActive {
   background-color: darken($color-light, 20);

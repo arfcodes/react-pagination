@@ -6,6 +6,10 @@ import Sidebar from './components/Sidebar';
 import Header from './components/Header';
 
 import Home from './pages/Home';
+import NextPrev from './pages/NextPrev';
+import NextPrevInfo from './pages/NextPrevInfo';
+import CustomIcon from './pages/CustomIcon';
+import CustomStyles from './pages/CustomStyles';
 import styles from './styles/main.scss';
 
 import './styles/reset.scss';
@@ -20,8 +24,11 @@ const App: React.FC = () => {
             <Sidebar />
             <div className={styles.content}>
               <Switch>
-                <Route path="/" component={Home} />
-                <Route path="/next-prev" component={Home} />
+                <Route path="/" component={Home} exact />
+                <Route path="/custom-icon" component={CustomIcon} />
+                <Route path="/custom-styles" component={CustomStyles} />
+                <Route path="/next-prev" component={NextPrev} />
+                <Route path="/next-prev-info" component={NextPrevInfo} />
                 <Route path="/request" component={Home} />
               </Switch>
             </div>

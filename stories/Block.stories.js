@@ -9,7 +9,7 @@ export default {
 
 const Template = (args) =>  (
   <Pagination
-    page={1} 
+    page={4} 
     total={999} 
     perPage={10} 
     marginNumbersDisplayed={0}
