@@ -69,6 +69,7 @@ const Main: React.FC<MainProps> = (props) => {
                   numbersDisplayed={numbersDisplayed || 5}
                   marginNumbersDisplayed={marginNumbersDisplayed}
                   ellipsis={ellipsis}
+                  ariaLabel={ariaLabel}
                   onChange={onChange}
                 />
               )}

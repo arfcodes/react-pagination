@@ -64,55 +64,88 @@ const Direction: React.FC<Props> = (props) => {
     prevButtonLabel,
     firstButtonLabel,
     lastButtonLabel,
+    ariaLabel,
   } = props;
 
-  const ButtonNext = () => (
-    <Button 
-      styler={styler}
-      name="buttonNext" 
-      ariaLabel="Go next page"
-      onChange={() => onChange(page + 1)}
-      disabled={page === pagesTotal}
-    >
-      {nextButtonLabel || 'Next'}
-    </Button>
-  );
+  const ButtonNext = () => {
 
-  const ButtonPrev = () => (
-    <Button 
-      styler={styler}
-      name="buttonPrev" 
-      ariaLabel="Go prev page"
-      onChange={() => onChange(page - 1)}
-      disabled={page === 1}
-    >
-      {prevButtonLabel || 'Prev'}
-    </Button>
-  );
+    const title = 
+      ariaLabel && typeof ariaLabel.next !== 'undefined' 
+        ? ariaLabel.next
+        : 'Go next page';
 
-  const ButtonFirst = () => (
-    <Button 
-      styler={styler}
-      name="buttonFirst" 
-      ariaLabel="Go first page"
-      onChange={() => onChange(1)}
-      disabled={page === 1}
-    >
-      {firstButtonLabel || 'First'}
-    </Button>
-  );
+    return (
+      <Button 
+        styler={styler}
+        name="buttonNext" 
+        ariaLabel={title}
+        onChange={() => onChange(page + 1)}
+        disabled={page === pagesTotal}
+      >
+        {nextButtonLabel || 'Next'}
+      </Button>
+    );
+  }
 
-  const ButtonLast = () => (
-    <Button 
-      styler={styler}
-      name="buttonLast" 
-      ariaLabel="Go last page"
-      onChange={() => onChange(pagesTotal)}
-      disabled={page === pagesTotal}
-    >
-      {lastButtonLabel || 'Last'}
-    </Button>
-  );
+  const ButtonPrev = () => {
+
+    const title = 
+      ariaLabel && typeof ariaLabel.prev !== 'undefined' 
+        ? ariaLabel.prev
+        : 'Go previous page';
+
+    return (
+      <Button 
+        styler={styler}
+        name="buttonPrev" 
+        ariaLabel={title}
+        onChange={() => onChange(page - 1)}
+        disabled={page === 1}
+      >
+        {prevButtonLabel || 'Prev'}
+      </Button>
+    );
+  };
+
+  const ButtonFirst = () => {
+
+    const title = 
+      ariaLabel && typeof ariaLabel.first !== 'undefined' 
+        ? ariaLabel.first
+        : 'Go first page';
+
+    return (
+      <Button 
+        styler={styler}
+        name="buttonFirst" 
+        ariaLabel={title}
+        onChange={() => onChange(1)}
+        disabled={page === 1}
+      >
+        {firstButtonLabel || 'First'}
+      </Button>
+    );
+  }
+
+  const ButtonLast = () => {
+
+    const title = 
+      ariaLabel && typeof ariaLabel.last !== 'undefined' 
+        ? ariaLabel.last
+        : 'Go last page';
+
+    return (
+      <Button 
+        styler={styler}
+        name="buttonLast" 
+        ariaLabel={title}
+        onChange={() => onChange(pagesTotal)}
+        disabled={page === pagesTotal}
+      >
+        {lastButtonLabel || 'Last'}
+      </Button>
+    );
+  }
 
   return (
     <>

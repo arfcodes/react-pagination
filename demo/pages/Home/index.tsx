@@ -20,6 +20,13 @@ const Home: React.FC = () => {
         numbersDisplayed={6}
         theme={Theme.DEFAULT}
         color={Color.DEFAULT}
+        ariaLabel={{
+          number: 'Pergi ke halaman {page}',
+          first: 'Pergi ke halaman pertama',
+          last: 'Pergi ke halaman terakhir',
+          next: 'Pergi ke halaman berikutnya',
+          prev: 'Pergi ke halaman sebelumnya',
+        }}
         onChange={(page: number) => setPage(page)}
       />
       <br />

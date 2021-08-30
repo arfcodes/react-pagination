@@ -1,5 +1,6 @@
 import React, { ReactNode } from 'react';
 
+import { AriaLabelProps } from './types';
 import StyleManager from './StyleManager';
 import Button from './Button';
 
@@ -32,6 +33,10 @@ interface Props {
    * The element for ellipsis. 
    */
   ellipsis?: ReactNode,
+  /**
+   * Set aria-label in the buttons
+   */
+  ariaLabel?: AriaLabelProps
 }
 
 const Numbers: React.FC<Props> = (props) => {
@@ -43,6 +48,7 @@ const Numbers: React.FC<Props> = (props) => {
     pagesTotal,
     onChange,
     ellipsis,
+    ariaLabel,
   } = props;
 
   const ElipsisElement = () => (
@@ -154,7 +160,10 @@ const Numbers: React.FC<Props> = (props) => {
     return  (
       <>
         {numbers.map(num => {
-          const title = `Go ${num} page`;
+          const title = 
+            ariaLabel && typeof ariaLabel.number !== 'undefined' 
+              ? ariaLabel.number.replace('{page}', num.toString()) 
+              : `Go to page ${num}`;
 
           return (
             <Button
