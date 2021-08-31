@@ -44,6 +44,10 @@ export default class StyleManager {
    * Take custom styles properties
    */
   customStyles?: StyleProps;
+  /**
+   * Take classnames list
+   */
+  classnames?: any;
 
   /**
    * Initialize 
@@ -57,7 +61,9 @@ export default class StyleManager {
     this.customStyles = props.customStyles;
 
     this.styleProps = {};
+    this.classnames = {};
     this.getStyleProps();
+    this.getClassnames();
   }
 
   /**
@@ -70,17 +76,63 @@ export default class StyleManager {
     }
     let props: string[] = [];
     keys.forEach((k: keyof StyleProps) => {
-      props = props.concat(this.getClass(k));
+      const val = typeof this.classnames[k] !== 'undefined' ? this.classnames[k] : '';
+      props = props.concat(val);
     });
-    // console.log(keys);
-    // console.log(props);
     return classNames(props);
+  }
+  
+  /**
+   * Get styles props
+   */
+  getStyleProps(): void {
+    if (this.theme === Theme.BLOCK) {
+      this.styleProps = blockStyles;
+    } else if (this.theme === Theme.LINE) {
+      this.styleProps = lineStyles;
+    } else if (this.theme === Theme.BUTTONS) {
+      this.styleProps = buttonsStyles;
+    } else {
+      this.styleProps = defaultStyles;
+    }
+  }
+  
+  /**
+   * Get classnames
+   */
+  getClassnames(): void {
+    const names: StyleProps = {
+      'root': '',
+      'main': '',
+      'numbers': '',
+      'button': '',
+      'buttonDirectory': '',
+      'buttonNumber': '',
+      'buttonNext': '',
+      'buttonPrev': '',
+      'buttonFirst': '',
+      'buttonLast': '',
+      'buttonActive': '',
+      'buttonDisable': '',
+      'info': '',
+    };
+    for (const key in names) {
+      let cn = '';
+      if (key === 'root') {
+        cn = this.getRootClasses();
+      } else {
+        cn = this.getClass(key as keyof StyleProps);
+      }
+      names[key as keyof StyleProps] = cn;
+    }
+    
+    this.classnames = names;
   }
 
   /**
-   * Get classes
+   * Get root classes
    */
-  rootClasses(): any {
+  getRootClasses(): any {
     const props: string[] = [];
     props.push(this.getClass('root'));
     if (!this.useClassname && this.theme !== Theme.CUSTOM) {
@@ -89,7 +141,7 @@ export default class StyleManager {
       const sizeKey = `size${this.size}` as keyof StyleProps;
       props.push(this.getStyle(sizeKey));
     }
-    return classNames(props);
+    return props;
   }
 
   /**
@@ -119,21 +171,6 @@ export default class StyleManager {
       props.push(this.customStyles[key as keyof StyleProps]);
     }
     return props;
-  }
-  
-  /**
-   * Get styles props
-   */
-  getStyleProps(): void {
-    if (this.theme === Theme.BLOCK) {
-      this.styleProps = blockStyles;
-    } else if (this.theme === Theme.LINE) {
-      this.styleProps = lineStyles;
-    } else if (this.theme === Theme.BUTTONS) {
-      this.styleProps = buttonsStyles;
-    } else {
-      this.styleProps = defaultStyles;
-    }
   }
 
   /**

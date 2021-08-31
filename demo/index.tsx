@@ -10,6 +10,7 @@ import NextPrev from './pages/NextPrev';
 import NextPrevInfo from './pages/NextPrevInfo';
 import CustomIcon from './pages/CustomIcon';
 import CustomStyles from './pages/CustomStyles';
+import Test from './pages/Test';
 import styles from './styles/main.scss';
 
 import './styles/reset.scss';
@@ -30,6 +31,7 @@ const App: React.FC = () => {
                 <Route path="/next-prev" component={NextPrev} />
                 <Route path="/next-prev-info" component={NextPrevInfo} />
                 <Route path="/request" component={Home} />
+                <Route path="/test" component={Test} />
               </Switch>
             </div>
           </div>

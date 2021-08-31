@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 
 import { MainProps } from './types';
 import StyleManager from './StyleManager';
@@ -36,17 +36,19 @@ const Main: React.FC<MainProps> = (props) => {
   //   setPagesTotal(Math.ceil(total/perPage));
   // }, []);
 
-  const styler = new StyleManager({ 
-    theme, 
-    color, 
-    size, 
-    customStyles: styles, 
-    useClassname,
-  });
+  const styler = useMemo(() => {
+    return new StyleManager({ 
+      theme, 
+      color, 
+      size, 
+      customStyles: styles, 
+      useClassname,
+    });
+  }, []);
 
   if (pagesTotal > 1) {
     return (
-      <div className={styler.rootClasses()}>
+      <div className={styler.classes('root')}>
         <div className={styler.classes('main')}>
           <Direction 
             page={page} 

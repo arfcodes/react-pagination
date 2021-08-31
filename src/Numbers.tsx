@@ -52,9 +52,11 @@ const Numbers: React.FC<Props> = (props) => {
   } = props;
 
   const ElipsisElement = () => (
-    <span className={styler.classes('ellipsis')}>
-      {ellipsis || '...'}
-    </span>
+    <>
+      {ellipsis ? <>{ellipsis}</> : (
+        <span className={styler.classes('ellipsis')}>...</span>
+      )}
+    </>
   );
 
   /**
