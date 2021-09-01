@@ -35,10 +35,6 @@ export interface MainProps {
    */
   page: number
   /**
-   * The total number of items that will be displayed.
-   */
-  perPage: number
-  /**
    * The total number of items.
    */
   total: number
@@ -46,6 +42,10 @@ export interface MainProps {
    * The callback invoked when pagination buttons are clicked.
    */
   onChange(page: number): void
+  /**
+   * The total number of items that will be displayed.
+   */
+  perPage?: number
   /**
    * Set aria-label in the buttons
    */

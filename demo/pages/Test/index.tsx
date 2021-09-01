@@ -17,6 +17,7 @@ const Home: React.FC = () => {
         numbersDisplayed={6}
         theme={Theme.DEFAULT}
         color={Color.BLUE}
+        useClassname
         ariaLabel={{
           number: 'Pergi ke halaman {page}',
           first: 'Pergi ke halaman pertama',

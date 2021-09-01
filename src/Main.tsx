@@ -28,8 +28,9 @@ const Main: React.FC<MainProps> = (props) => {
     prevButtonLabel,
     nextButtonLabel,
   } = props;
-
-  const pagesTotal = Math.ceil(total/perPage);
+  
+  const perPageVal = perPage || 10;
+  const pagesTotal = Math.ceil(total/perPageVal);
   // const [pagesTotal, setPagesTotal] = useState(Math.ceil(total/perPage));
 
   // useEffect(() => {
