@@ -107,6 +107,10 @@ export interface MainProps {
    */
   children?: ReactNode,
   /**
+   * If `true`, the ellipsis will be hidden.
+   */
+  hideEllipsis?: boolean
+  /**
    * The element for ellipsis. 
    */
   ellipsis?: ReactNode,
@@ -126,6 +130,7 @@ export interface StyleProps {
   buttonActive?: string,
   buttonDisable?: string,
   info?: string,
+  ellipsis?: string,
 }
 
 export interface AriaLabelProps {

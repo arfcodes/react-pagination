@@ -114,6 +114,7 @@ export default class StyleManager {
       'buttonLast': '',
       'buttonActive': '',
       'buttonDisable': '',
+      'ellipsis': '',
       'info': '',
     };
     for (const key in names) {
@@ -177,9 +178,6 @@ export default class StyleManager {
    * Get styles props
    */
   isValidStyle(value: keyof StyleProps, props: StyleProps): value is keyof StyleProps {
-    if (value) {
-      return value in props;
-    }
-    return false
+    return value in props;
   }
 }

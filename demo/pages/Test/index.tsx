@@ -5,16 +5,16 @@ import Pagination, { Theme, Color } from '../../../src';
 // import Styles from './Styles.scss';
 
 const Home: React.FC = () => {
-  const [page, setPage] = useState(4);
+  const [page, setPage] = useState(8);
 
   return (
     <div>
       <Pagination
         page={page} 
-        total={1000}  
-        perPage={10} 
-        marginNumbersDisplayed={0}
-        numbersDisplayed={6}
+        total={200}  
+        perPage={10}
+        marginNumbersDisplayed={3}
+        numbersDisplayed={4}
         theme={Theme.DEFAULT}
         color={Color.BLUE}
         useClassname

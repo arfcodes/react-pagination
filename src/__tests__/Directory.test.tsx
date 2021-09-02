@@ -51,7 +51,7 @@ describe('<Direction />', () => {
     expect(onChangeSpy).toHaveBeenCalled();
   });
 
-  it('should `ariaLabel` is used properly', () => {
+  it('should `ariaLabel` property is used properly', () => {
     const nextLabel = 'Go next';
     const prevLabel = 'Go prev';
     const firstLabel = 'Go first';

@@ -20,6 +20,7 @@ const Main: React.FC<MainProps> = (props) => {
     hideNumbers,
     numbersDisplayed,
     marginNumbersDisplayed,
+    hideEllipsis,
     ellipsis,
     children,
     firstLastButton,
@@ -71,6 +72,7 @@ const Main: React.FC<MainProps> = (props) => {
                   pagesTotal={pagesTotal}
                   numbersDisplayed={numbersDisplayed || 5}
                   marginNumbersDisplayed={marginNumbersDisplayed}
+                  hideEllipsis={hideEllipsis}
                   ellipsis={ellipsis}
                   ariaLabel={ariaLabel}
                   onChange={onChange}

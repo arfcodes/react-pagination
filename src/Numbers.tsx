@@ -30,6 +30,10 @@ interface Props {
    */
   marginNumbersDisplayed?: number
   /**
+   * If `true`, the ellipsis will be hidden.
+   */
+  hideEllipsis?: boolean
+  /**
    * The element for ellipsis. 
    */
   ellipsis?: ReactNode,
@@ -47,6 +51,7 @@ const Numbers: React.FC<Props> = (props) => {
     marginNumbersDisplayed, 
     pagesTotal,
     onChange,
+    hideEllipsis,
     ellipsis,
     ariaLabel,
   } = props;
@@ -67,6 +72,7 @@ const Numbers: React.FC<Props> = (props) => {
     if (half > 1 && numbersDisplayed % 2 === 0) {
       half -= 1;
     }
+
     let start = page - half;
     if (start < 1) {
       start = 1;
@@ -83,9 +89,9 @@ const Numbers: React.FC<Props> = (props) => {
 
     return (
       <>
-        {getLeftMargins(start)}
+        {!hideEllipsis && getLeftMargins(start)}
         {getButtons(numbers)}
-        {getRightMargins(end - 1)}
+        {!hideEllipsis && getRightMargins(end - 1)}
       </>
     );
   };
@@ -94,7 +100,6 @@ const Numbers: React.FC<Props> = (props) => {
    * getLeftMargins
    */
   const getLeftMargins = (first: number) => {
-    
     if (marginNumbersDisplayed === undefined || marginNumbersDisplayed !== 0) {
       const margin = marginNumbersDisplayed ? marginNumbersDisplayed : 1;
       let isShow = true;
