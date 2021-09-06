@@ -178,6 +178,9 @@ export default class StyleManager {
    * Get styles props
    */
   isValidStyle(value: keyof StyleProps, props: StyleProps): value is keyof StyleProps {
-    return value in props;
+    if (typeof props[value] !== 'undefined') {
+      return true;
+    }
+    return false;
   }
 }
