@@ -1,8 +1,10 @@
-declare namespace DefaultScssNamespace {
-  export interface IDefaultScss {
+declare namespace BlockScssNamespace {
+  export interface IBlockScss {
     button: string;
     buttonActive: string;
     buttonDirectory: string;
+    buttonFirst: string;
+    buttonLast: string;
     buttonNumber: string;
     colorBLUE: string;
     colorDARK: string;
@@ -18,9 +20,9 @@ declare namespace DefaultScssNamespace {
   }
 }
 
-declare const DefaultScssModule: DefaultScssNamespace.IDefaultScss & {
+declare const BlockScssModule: BlockScssNamespace.IBlockScss & {
   /** WARNING: Only available when `css-loader` is used without `style-loader` or `mini-css-extract-plugin` */
-  locals: DefaultScssNamespace.IDefaultScss;
+  locals: BlockScssNamespace.IBlockScss;
 };
 
-export = DefaultScssModule;
+export = BlockScssModule;

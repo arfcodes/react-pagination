@@ -1,17 +1,20 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-module.exports = (env, argv) => ({
-  mode: argv.mode || 'development',
-  entry: [path.join(__dirname, 'src/index.ts')],
+function resolve(dir) {
+  return path.join(process.cwd(), 'demo/', dir);
+}
+
+module.exports = {
+  mode: 'development',
+  entry: [resolve('index.tsx')],
   output: {
-    path: path.join(__dirname, 'dist'),
-    library: 'IznReactPagination',
-    libraryTarget: 'umd',
-    filename: 'index.js',
+    path: resolve('build'),
+    filename: `[name].[chunkhash].js`,
   },
   devServer: {
-    port: 3000,
-    contentBase: path.join(__dirname, 'dist'),
+    port: 3003,
+    contentBase: resolve('build'),
     historyApiFallback: true,
     compress: true,
     clientLogLevel: 'silent',
@@ -60,14 +63,30 @@ module.exports = (env, argv) => ({
       },
     ],
   },
-  plugins: [],
+  plugins: [
+    // Minify and optimize the index.html
+    new HtmlWebpackPlugin({
+      template: resolve('index.html'),
+      minify: {
+        removeComments: true,
+        collapseWhitespace: true,
+        removeRedundantAttributes: true,
+        useShortDoctype: true,
+        removeEmptyAttributes: true,
+        removeStyleLinkTypeAttributes: true,
+        keepClosingSlash: true,
+        minifyJS: true,
+        minifyCSS: true,
+        minifyURLs: true,
+      },
+      inject: true,
+    }),
+  ],
   resolve: {
     modules: ['node_modules', 'src'],
     extensions: ['.js', '.jsx', '.ts', '.tsx'],
     alias: {
-      '@': path.join(__dirname, 'src'),
+      '@': path.join(process.cwd(), '/'),
     },
   },
-  target: 'node',
-  devtool: 'source-map',
-});
+};

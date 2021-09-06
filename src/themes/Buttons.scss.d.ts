@@ -1,5 +1,5 @@
-declare namespace DefaultScssNamespace {
-  export interface IDefaultScss {
+declare namespace ButtonsScssNamespace {
+  export interface IButtonsScss {
     button: string;
     buttonActive: string;
     buttonDirectory: string;
@@ -18,9 +18,9 @@ declare namespace DefaultScssNamespace {
   }
 }
 
-declare const DefaultScssModule: DefaultScssNamespace.IDefaultScss & {
+declare const ButtonsScssModule: ButtonsScssNamespace.IButtonsScss & {
   /** WARNING: Only available when `css-loader` is used without `style-loader` or `mini-css-extract-plugin` */
-  locals: DefaultScssNamespace.IDefaultScss;
+  locals: ButtonsScssNamespace.IButtonsScss;
 };
 
-export = DefaultScssModule;
+export = ButtonsScssModule;

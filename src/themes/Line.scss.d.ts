@@ -1,8 +1,10 @@
-declare namespace DefaultScssNamespace {
-  export interface IDefaultScss {
+declare namespace LineScssNamespace {
+  export interface ILineScss {
     button: string;
     buttonActive: string;
     buttonDirectory: string;
+    buttonFirst: string;
+    buttonLast: string;
     buttonNumber: string;
     colorBLUE: string;
     colorDARK: string;
@@ -18,9 +20,9 @@ declare namespace DefaultScssNamespace {
   }
 }
 
-declare const DefaultScssModule: DefaultScssNamespace.IDefaultScss & {
+declare const LineScssModule: LineScssNamespace.ILineScss & {
   /** WARNING: Only available when `css-loader` is used without `style-loader` or `mini-css-extract-plugin` */
-  locals: DefaultScssNamespace.IDefaultScss;
+  locals: LineScssNamespace.ILineScss;
 };
 
-export = DefaultScssModule;
+export = LineScssModule;

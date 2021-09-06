@@ -1,0 +1,13 @@
+.root {
+  position: relative;
+}
+.content {
+  padding: 40px;
+  background-color: #ffffff;
+  border-left: 2px solid #dddddd;
+}
+.main {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}

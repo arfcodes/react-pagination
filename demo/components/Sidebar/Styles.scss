@@ -1,0 +1,44 @@
+.root {
+  padding: 40px 30px;
+  background-color: #dddddd;
+  border-right: 1px solid #bbbbbb;
+  height: 100%;
+  width: 320px;
+}
+.nav {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.link {
+  display: block;
+  padding: 20px 0;
+  border-bottom: 1px solid #888888;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 600;
+  color: #333333;
+  transition: all 0.4s;
+
+  > span {
+    display: block;
+    transition: all 0.4s;
+  }
+
+  &:hover {
+    color: #ffffff;
+    background-color: #333333;
+
+    > span {
+      transform: translateX(15px);
+    }
+  }
+}
+.linkActive {
+  color: #ffffff;
+  background-color: #333333;
+
+  > span {
+    transform: translateX(15px);
+  }
+}
