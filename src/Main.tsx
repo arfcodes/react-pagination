@@ -20,6 +20,7 @@ const Main: React.FC<MainProps> = (props) => {
     hideNumbers,
     numbersDisplayed,
     marginNumbersDisplayed,
+    hideEllipsis,
     ellipsis,
     children,
     firstLastButton,
@@ -28,8 +29,9 @@ const Main: React.FC<MainProps> = (props) => {
     prevButtonLabel,
     nextButtonLabel,
   } = props;
-
-  const pagesTotal = Math.ceil(total/perPage);
+  
+  const perPageVal = perPage || 10;
+  const pagesTotal = Math.ceil(total/perPageVal);
   // const [pagesTotal, setPagesTotal] = useState(Math.ceil(total/perPage));
 
   // useEffect(() => {
@@ -70,6 +72,7 @@ const Main: React.FC<MainProps> = (props) => {
                   pagesTotal={pagesTotal}
                   numbersDisplayed={numbersDisplayed || 5}
                   marginNumbersDisplayed={marginNumbersDisplayed}
+                  hideEllipsis={hideEllipsis}
                   ellipsis={ellipsis}
                   ariaLabel={ariaLabel}
                   onChange={onChange}
