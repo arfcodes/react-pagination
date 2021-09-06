@@ -15,7 +15,7 @@ const Home: React.FC = () => {
         perPage={10}
         marginNumbersDisplayed={3}
         numbersDisplayed={4}
-        theme={Theme.DEFAULT}
+        theme={Theme.BLOCK}
         color={Color.BLUE}
         // useClassname
         ariaLabel={{
