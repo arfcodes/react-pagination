@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Pagination, { Theme, Color } from '../../../src';
+import Pagination, { Theme, Color } from '../../../dist/index.cjs.js';
 
 // import { H2, H3 } from '../../components/Title';
 // import Styles from './Styles.scss';
@@ -11,13 +11,13 @@ const Home: React.FC = () => {
     <div>
       <Pagination
         page={page} 
-        total={200}  
+        total={200}
         perPage={10}
         marginNumbersDisplayed={3}
         numbersDisplayed={4}
         theme={Theme.DEFAULT}
         color={Color.BLUE}
-        useClassname
+        // useClassname
         ariaLabel={{
           number: 'Pergi ke halaman {page}',
           first: 'Pergi ke halaman pertama',
