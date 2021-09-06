@@ -49,7 +49,7 @@
     cursor: not-allowed;
 
     &:hover {
-      background-color: transparent;
+      background-color: transparent!important;
       color: #{$color-default};
     }
   }

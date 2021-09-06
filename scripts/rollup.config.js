@@ -28,7 +28,12 @@ export default formats.map((format) => {
         commonjs({
           include: /\/node_modules\//,
         }),
-      postcss(),
+      postcss({
+        modules: true,
+        config: {
+          path: '../postcss.config.js'
+        }
+      }),
       sourcemaps(),
       format !== 'esm' &&
         terser({
