@@ -1,6 +1,6 @@
 {
   "name": "@arfcodes/react-pagination",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A React component for build flexible pagination",
   "repository": {
     "type": "git",
