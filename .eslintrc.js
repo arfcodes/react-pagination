@@ -14,7 +14,7 @@ module.exports = {
     'import/resolver': {
       typescript: {},
       webpack: {
-        config: './webpack.config.js',
+        config: './demo/webpack.config.js',
       },
     },
   },
