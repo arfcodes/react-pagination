@@ -35,7 +35,7 @@
     "build-storybook": "build-storybook",
     "test": "jest -c scripts/jest/jest.config.js",
     "lint": "eslint '**/*.{js,ts,tsx}'",
-    "semantic-release": "semantic-release"
+    "release": "semantic-release"
   },
   "dependencies": {
     "classnames": "^2.3.1",
