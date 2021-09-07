@@ -126,6 +126,11 @@
     "url": "https://github.com/arfcodes/react-pagination/issues"
   },
   "homepage": "https://github.com/arfcodes/react-pagination#readme",
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
